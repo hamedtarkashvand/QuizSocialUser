@@ -5,33 +5,30 @@ import coreApi from "./../../../api" ;
   }
   
 export interface IDataFormUserSocial {
-    type: ITypeSocials;
+    social: ITypeSocials;
     address?: string;
   }
  
   export interface IinitialState {
-    socialUser: IDataFormUserSocial ,
+    socialUser: IDataFormUserSocial[] ,
     loading :boolean  ,
     erroreMessage : null | string
   }
 
-export const fetchSocialUser = createAsyncThunk('socialUser/get',
+export const fetchSocialUser = createAsyncThunk('fetchSocialUser',
 async ()=> {
-         const {data} = await coreApi.get(`https://jsonplaceholder.typicode.com/posts`);
+         const {data} = await coreApi.get(`/user_socials`);
          return data
 })   
 
 const initialState = {
-    socialUser : {
-        address: "",
-        type: { value: "" },
-    } ,
+    socialUser : [] ,
     loading:true,
     erroreMessage : null
   } as IinitialState
 
   const socialSlice = createSlice({
-      name:'socialUser' ,
+      name:'socialUserss' ,
       initialState,
       reducers: {
         // fill in primary logic here

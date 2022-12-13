@@ -30,6 +30,7 @@ const fa = {
     },
     setting : {
       add:'افزودن مسیر ارتباطی',
+      socialRoute:'مسیر های ارتباطی',
       form : {
         valdationMessages:{
           address:{
@@ -44,7 +45,7 @@ const fa = {
           facebook:'فیس بوک',
           twitter:'توییتر',
           instagram:'اینستاگرام',
-          linkedIn:'لینکدین',
+          linkedin:'لینکدین',
           language:'وب سایت',
           telegram:'تلگرام',
         },
@@ -52,7 +53,7 @@ const fa = {
           facebook:'فیس بوک',
           twitter:'توییتر',
           instagram:'اینستاگرام',
-          linkedIn:'لینکدین',
+          linkedin:'لینکدین',
           language:'وب سایت',
           telegram:'تلگرام',
         },
@@ -94,6 +95,7 @@ const en = {
     },
     setting : {
       add:'add Social',
+      socialRoute:'routs conetion',
       form : {
         valdationMessages:{
           email:{
@@ -105,18 +107,18 @@ const en = {
           }
         },
         icon: {
-          facebook:'فیس بوک',
-          twitter:'توییتر',
-          instagram:'اینستاگرام',
-          linkedIn:'لینکدین',
-          language:'وب سایت',
-          telegram:'تلگرام',
+          facebook:'facebook',
+          twitter:'twitter',
+          instagram:'instagram',
+          linkedin:'linkedin',
+          language:'language',
+          telegram:'telegram',
         },
         autocomplete : {
           facebook:'facebook',
           twitter:'twitter',
           instagram:'instagram',
-          linkedIn:'linkedIn',
+          linkedin:'linkedIn',
           language:'webSite',
           telegram:'telegram',
         },

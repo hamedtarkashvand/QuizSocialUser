@@ -1,7 +1,7 @@
 
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { styled } from '@mui/material/styles';
-import Switch, { SwitchProps } from '@mui/material/Switch';
+import Switch from '@mui/material/Switch';
 import React from 'react';
 interface IswitchButton {
     onChange : ()=>void

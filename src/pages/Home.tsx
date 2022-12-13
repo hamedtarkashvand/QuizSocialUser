@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { Container, Typography, Paper, Box, Link } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -5,6 +6,11 @@ import Accordion from "../components/accordion";
 function Home() {
   const { t } = useTranslation();
   const history = useNavigate();
+
+  React.useEffect(()=>{
+    console.log( 'home')
+  },[])
+
   return (
     <>
       <Paper sx={{ borderRadius: 0 }} style={{ height: "calc(100vh - 106px)" }}>

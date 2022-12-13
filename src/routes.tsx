@@ -1,24 +1,28 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate  
+  Navigate,
 } from "react-router-dom";
-import Header from './components/header';
-import Home from './pages/Home';
-import Setting from './pages/Setting';
-  const RoutesApp = () =>{
-    return (
-      <Router>
-          <Header/>
-        <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/settings" element={<Setting />}  />
-            <Route path="*" element={<Navigate replace to="/" />} />
-        </Routes>
-     </Router>
-    )
-  }
+const Header = React.lazy(() => import("./components/header"));
+const Home = React.lazy(() => import("./pages/Home"));
+const Setting = React.lazy(() => import("./pages/Setting"));
+// import Header from './components/header';
 
-  export default RoutesApp
+const RoutesApp = () => {
+  return (
+    <React.Suspense fallback={(<h1>loading ...</h1>)}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/settings" element={<Setting />} />
+          <Route path="*" element={<Navigate replace to="/" />} />
+        </Routes>
+      </Router>
+    </React.Suspense>
+  );
+};
+
+export default RoutesApp;

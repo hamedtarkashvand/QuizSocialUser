@@ -35,7 +35,7 @@ const FormUserSettingEdite = ({
   const [initioalValues, setInitioalValues] =
     React.useState<IDataFormUserSetting>({
       address: "frontends",
-      type: {value: "facebook"},
+      social: {value: "facebook"},
     });
 
 
@@ -66,11 +66,11 @@ const FormUserSettingEdite = ({
               alignItems: "center",
               justifyContent: "space-between",
             }}>
-            <MyIcon icon={data.type.value} />
+            <MyIcon icon={data.social.value} />
             <Typography
               component="h6"
               fontSize="0.857143rem"
-              children={t(`setting.form.icon.${data.type?.value}`)}
+              children={t(`setting.form.icon.${data.social.value}`)}
               sx={{ margin: "10px 0" }}
             />
 

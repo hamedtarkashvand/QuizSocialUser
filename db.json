@@ -1,0 +1,7 @@
+{
+  "user_socials":[
+    { "id": 1, "social":{"value":"facebook"} , "address": "https://facebook.com/123ydu" },
+    { "id": 2, "social": {"value":"twitter"}, "address": "https://twitter.com/123yduی" },
+    { "id": 3, "social": {"value":"linkedin"}, "address": "https://linkedin.com/123ydu3" }
+  ]
+}

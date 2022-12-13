@@ -20,7 +20,7 @@ const MyIcon = ({ icon }: { icon?: string })=> {
         case "twitter":
           return <TwitterIcon sx={sx} />;
           break;
-        case "linkedIn":
+        case "linkedin":
           return <LinkedInIcon sx={sx} />;
           break;
         case "instagram":

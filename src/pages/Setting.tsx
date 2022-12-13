@@ -1,9 +1,7 @@
 import * as React from "react";
-import { useDispatch, useSelector  } from "react-redux";
 import AddIcon from "@mui/icons-material/Add";
 import FormUserSettingEdite from "../components/forms/formUserSettingEdite";
-import  {fetchSocialUser} from "./../Redux/socialUser/slices/socialSlice";
-
+import { useGetListSocial } from "./../hooks/apiHooks/socialUser/useGetListSocial";
 import {
   Container,
   Typography,
@@ -20,33 +18,31 @@ import FormUserSetting, {
 } from "../components/forms/formUserSetting";
 
 function Setting() {
+  const [socialUser, { loading }] = useGetListSocial();
   const [collapse, setCollapse] = React.useState<boolean>(false);
   const { t } = useTranslation();
-  const dispatch = useDispatch<any>();
 
   const [initioalValues, setInitioalValues] =
-    React.useState<IDataFormUserSetting>({
-      address: "",
-      type: { value: "" },
-    });
+    React.useState<IDataFormUserSetting[]>();
+
+  React.useEffect(() => {
+    console.log("setting");
+  }, []);
+
   const handleCollapse = React.useCallback(() => {
     setCollapse((prev) => !prev);
   }, [initioalValues]);
-
-  
-
-  React.useEffect(() => {
-    dispatch(fetchSocialUser())
-  }, []);
 
   return (
     <Paper sx={{ borderRadius: 0, minHeight: "calc(100vh - 106px)" }}>
       <Container maxWidth="md">
         <Paper elevation={3} sx={{ padding: "20px", borderRadius: "20px" }}>
+          {loading ? <h1>fetching ... </h1> : ""}
           <Typography
             component="h6"
             fontSize="0.857143rem"
-            children="مسیرهای ارتباطی"
+            // children="مسیرهای ارتباطی"
+            children={t("setting.socialRoute")}
           />
           <Button
             color="warning"
@@ -56,11 +52,11 @@ function Setting() {
             onClick={handleCollapse}
             disabled={collapse}
             startIcon={<AddIcon sx={{ marginLeft: "8px" }} />}>
-            افزودن مسیر
+            {t("setting.add")}
           </Button>
           <Collapse in={collapse}>
             <FormUserSetting
-              formValues={initioalValues}
+              // formValues={initioalValues}
               render={collapse}
               onSubmit={(data: IDataFormUserSetting, resetForm) => {
                 console.log(data);
@@ -73,11 +69,12 @@ function Setting() {
               cancel={handleCollapse}
             />
           </Collapse>
+
           <Box>
-            {listSubmitDada.map((dataForm: IDataFormUserSetting) => {
+            {socialUser.map((dataForm: any) => {
               return (
                 <FormUserSettingEdite
-                  key={dataForm.type.value}
+                  key={`${dataForm.social.value}`}
                   data={dataForm}
                   onSubmitEdite={(
                     data: IDataFormUserSetting,
@@ -99,21 +96,6 @@ function Setting() {
     </Paper>
   );
 }
-
-const listSubmitDada = [
-  {
-    address: "https://facebook.com/123yduی",
-    type: {
-      value: "facebook",
-    },
-  },
-  {
-    address: "https://twitter.com/123yduی",
-    type: {
-      value: "twitter",
-    },
-  },
-];
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#f4f6f8",

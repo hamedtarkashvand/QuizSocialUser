@@ -19,7 +19,7 @@ export interface ITypeSocials {
 }
 
 export interface IDataFormUserSetting {
-  type: ITypeSocials;
+  social: ITypeSocials;
   address?: string;
 }
 
@@ -37,7 +37,7 @@ const FormUserSetting = ({
   editTableMode = false,
   formValues = {
     address: "",
-    type: { value: "" },
+    social: { value: "" },
   },
   cancel,
   onSubmit,
@@ -95,7 +95,7 @@ const FormUserSetting = ({
                       fullWidth={true}
                       id="Autocomplete"
                       name="type"
-                      value={values.type}
+                      value={values.social}
                       getOptionLabel={(option: ITypeSocials) =>
                         !!option.value
                           ? t(`setting.form.autocomplete.${option.value}`)
@@ -112,8 +112,8 @@ const FormUserSetting = ({
                           {...params}
                           onBlur={handleBlur}
                           name="type"
-                          error={touched.type && Boolean(errors.type)}
-                          helperText={errors.type && errors.type}
+                          error={touched.social && Boolean(errors.social)}
+                          helperText={errors.social && errors.social}
                           label={t("setting.form.type")}
                         />
                       )}
@@ -147,7 +147,7 @@ const FormUserSetting = ({
                   </Grid>
                 </Grid>
               </Box>
-                                  
+
               <Box
                 sx={{
                   margin: "10px 0",
@@ -196,7 +196,7 @@ const top100Films = [
   { value: "facebook" },
   { value: "twitter" },
   { value: "instagram" },
-  { value: "linkedIn" },
+  { value: "linkedin" },
   { value: "language" },
   { value: "telegram" },
 ];
